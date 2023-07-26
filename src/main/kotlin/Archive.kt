@@ -28,17 +28,19 @@ fun printNoteMenu(archive: NoteArchive) {
 
 fun createNote(archive: NoteArchive) {
     print("Введите название новой заметки: ")
-    val title = readLine()
+    val name = readLine()
     print("Введите текст новой заметки: ")
     val text = readLine()
-    if (title != null && text != null) {
-        archive.notes.add(Note(title, text))
+    if (!name.isNullOrBlank() && !text.isNullOrBlank()) {
+        archive.notes.add(Note(name, text))
+    } else {
+        println("Необходимо ввести название и текст заметки.")
     }
 }
 
 fun viewNoteText(note: Note) {
     println("Название заметки: ${note.title}\nТекст заметки: ${note.text}")
-} // я не совсем может быть понял, но нужно чтобы он просто показал название и текст или чтобы он всё это показывал и была отдельная кнопка чтобы вернуться назад
+}
 
 
 

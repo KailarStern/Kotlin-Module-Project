@@ -15,19 +15,21 @@ fun main() {
             }
         }
     }
-}// не знаю насколько важно было чтобы он выводил текст на несуществующую цифру, поэтому я просто объединил
+}
 
 fun printArchiveMenu() {
     println("\nСписок архивов:")
     println("0. Создать архив")
     archives.forEachIndexed { index, archive -> println("${index + 1}. ${archive.name}") }
     println("${archives.size + 1}. Выход")
-} // Не знаю можно ли говорить о том что он совпадает с printNoteMenu. Конструкция конечно одинаковая, но код не тот же00
+}
 
 fun createArchive() {
     print("Введите название нового архива: ")
     val name = readLine()
-    if (name != null) {
+    if (!name.isNullOrBlank()) {
         archives.add(NoteArchive(name))
+    } else {
+        println("Необходимо ввести название архива.")
     }
 }
